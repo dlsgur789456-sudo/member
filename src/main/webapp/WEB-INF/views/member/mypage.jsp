@@ -151,7 +151,7 @@ body {
 
 					<div class="item">
 						<label>비밀번호</label> <input type="password" name="pw" readonly
-							value="${list.pw}">
+							value="*******">
 					</div>
 
 					<div class="item">
