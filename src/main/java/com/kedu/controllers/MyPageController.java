@@ -15,23 +15,21 @@ import com.kedu.dto.MemberDTO;
 public class MyPageController {
 	@Autowired
 	MemberDAO dao;
-	
+
 	@RequestMapping("/mypage")
 	public String mypage (MemberDTO dto, HttpSession session, Model model) {
 		String id = (String)session.getAttribute("loginId");
 		model.addAttribute("list", dao.listAll(id));
 		return "member/mypage";
 	}
-
 	
-	@RequestMapping("/delete")
 	public String delete(HttpSession session) {
 		String id = (String) session.getAttribute("loginId");
 		dao.delete(id);
 		session.invalidate();
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping("/update")
 	public String update(MemberDTO dto) {
 		dao.update(dto);
