@@ -131,47 +131,47 @@ body {
 
 					<div class="item">
 						<label>아이디</label> <input type="text" name="id" readonly
-							value="${id}">
+							value="${list.id}">
 					</div>
 
 					<div class="item">
 						<label>이름</label> <input type="text" id="name" name="name"
-							readonly value="${name}">
+							readonly value="${list.name}">
 					</div>
 
 					<div class="item">
 						<label>전화번호</label> <input type="text" id="phone" name="phone"
-							readonly value="${phone}">
+							readonly value="${list.phone}">
 					</div>
 
 					<div class="item">
 						<label>이메일</label> <input type="text" id="email" name="email"
-							readonly value="${email}">
+							readonly value="${list.email}">
 					</div>
 
 					<div class="item">
 						<label>비밀번호</label> <input type="password" name="pw" readonly
-							value="${pw}">
+							value="${list.pw}">
 					</div>
 
 					<div class="item">
 						<label>가입일</label> <input type="text" name="regdate" readonly
-							value="${regdate}">
+							value="${list.regdate}">
 					</div>
 
 					<div class="item">
 						<label>우편번호</label> <input type="text" name="zipcode" readonly
-							value="${zipcode}">
+							value="${list.zipcode}">
 					</div>
 
 					<div class="item">
 						<label>주소</label> <input type="text" name="address1" readonly
-							value="${address1}">
+							value="${list.address1}">
 					</div>
 
 					<div class="item full">
 						<label>상세주소</label> <input type="text" name="address2" readonly
-							value="${address2}">
+							value="${list.address2}">
 					</div>
 
 				</div>
@@ -191,7 +191,7 @@ body {
 			$("#email").prop("readonly", "false");
 		});
 		$("#delete").on("click", function() {
-			href = "/member/delete";
+			location.href = "/member/delete";
 		});
 	</script>
 </body>
