@@ -117,7 +117,7 @@ body {
 <body>
 
 	<div class="container">
-		<form action="/member/update">
+		<form action="/member/update" method="post">
 			<div class="title">
 				<h1>마이페이지</h1>
 				<p>회원 정보를 확인할 수 있습니다.</p>
@@ -178,18 +178,30 @@ body {
 
 				<div class="bottom">
 
-					<button id="update" type="submit">수정</button>
+					<button id="update" type="button">수정</button>
 					<button id="delete" type="button">회원탈퇴</button>
 				</div>
 			</div>
 		</form>
 	</div>
 	<script>
-		$("#update").on("click", function() {
-			$("#name").prop("readonly", "false");
-			$("#phone").prop("readonly", "false");
-			$("#email").prop("readonly", "false");
-		});
+	$("#update").on("click", function() {
+
+	    if ($(this).text() == "수정") {
+
+	        $(this).text("수정완료");
+
+	        $("#name").prop("readonly", false);
+	        $("#phone").prop("readonly", false);
+	        $("#email").prop("readonly", false);
+
+	    } else {
+
+	        $(this).closest("form").submit();
+
+	    }
+
+	});
 		$("#delete").on("click", function() {
 			location.href = "/member/delete";
 		});
