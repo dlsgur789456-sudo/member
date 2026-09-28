@@ -29,19 +29,26 @@ public class MemberDAO {
 	}
 	
 	public boolean idCheck(String id) {
-		String sql = "SELECT COUNT(*) FROM members WHERE id = ?";
+		String sql = "SELECT COUNT(*) FROM member WHERE id = ?";
 		
 		int count = jdbc.queryForObject(sql, Integer.class, id);
 		return count > 0 ;
 	}
 	
 	public boolean login(String id, String pw) {
-		String sql = "select * from members where id=? and pw = ?";
+		String sql = "select * from member where id=? and pw = ?";
 		
 		return !jdbc.query(sql, 
 				new BeanPropertyRowMapper<>(MemberDTO.class), 
 				id, pw).isEmpty();
 	}
+
+
+	public int delete(String id) {
+		String sql = "delete from member where id = ?";
+		return jdbc.update(sql, id);
+	}
+
 	public int update(MemberDTO dto) {
 		String sql= "update members set pw=?, name=?, phone=?, email=?, zipcode=?, address1=?, address2=? where id=?";
 		return jdbc.update(sql ,dto.getPw(),dto.getName(),dto.getPhone(), dto.getEmail(),dto.getZipcode(), dto.getAddress1(),dto.getAddress2(),dto.getId());
@@ -50,5 +57,6 @@ public class MemberDAO {
 	public MemberDTO listAll(String id) {
 		String sql = "select * from members where id=?";
 		return jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(MemberDTO.class), id);
+
 	}
 }
