@@ -34,6 +34,7 @@ public class MyPageController {
 	public String update(MemberDTO dto) {
 		dao.update(dto);
 
-		return "redirect:/mypage";
+		return "redirect:/member/mypage";
+
 	}
 }
