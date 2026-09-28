@@ -167,7 +167,7 @@ input::placeholder {
 
 		<h1>회원가입</h1>
 
-		<form action="/members/register" method="post">
+		<form action="/member/register" method="post">
 
 			<fieldset>
 
@@ -292,7 +292,7 @@ input::placeholder {
 
 			$.ajax({
 
-				url: "/members/idcheck",
+				url: "/member/idcheck",
 
 				data: {
 					id: id
